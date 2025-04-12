@@ -11,19 +11,7 @@ SetCAndCXXStandard(11 20)
 
 EnableCCache()
 
-project(new_cpp_project)
-
-enable_testing()
-include(GoogleTest)
-include(CTest)
-
-# Google Test
-add_subdirectory(third_party/googletest EXCLUDE_FROM_ALL)
-
-# Google Benchmark
-set(GOOGLETEST_PATH "third_party/googletest" EXCLUDE_FROM_ALL)
-set(BENCHMARK_ENABLE_TESTING FALSE)
-add_subdirectory(third_party/googlebenchmark EXCLUDE_FROM_ALL)
+project(metalinfo)
 
 # Project
 add_subdirectory(src)

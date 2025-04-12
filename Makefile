@@ -1,13 +1,10 @@
 # This project uses CMake and Git sub-modules. This Makefile is just in place
 # to make common tasks easier.
 
-.PHONY: clean build
+.PHONY: run clean build
 
-test: build
-	ctest --test-dir build
-
-bench: build
-	./build/src/new_cpp_project_benchmarks
+run: build
+	./build/src/metalinfo
 
 build: build/build.ninja
 	cmake --build build

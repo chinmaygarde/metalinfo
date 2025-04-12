@@ -1,36 +1,14 @@
-# Library
-add_library(new_cpp_project
-  project.h
-  project.cc
+
+add_executable(metalinfo
+  main.mm
 )
 
-# Configure Fixtures Location
-get_filename_component(TEST_ASSETS_LOCATION ../assets ABSOLUTE)
-configure_file(fixtures_location.h.in fixtures_location.h @ONLY)
+target_compile_options(metalinfo PUBLIC "-fobjc-arc")
 
-# Unittests
-add_executable(new_cpp_project_tests
-  unittests.cc
-)
-target_link_libraries(new_cpp_project_tests
-  new_cpp_project
-  gtest_main
-)
-target_include_directories(new_cpp_project_tests
+target_link_libraries(metalinfo
   PUBLIC
-    ${CMAKE_CURRENT_BINARY_DIR}
+  "-framework Foundation"
+  "-framework Metal"
 )
-gtest_discover_tests(new_cpp_project_tests)
 
-# Benchmarks
-add_executable(new_cpp_project_benchmarks
-  benchmarks.cc
-)
-target_link_libraries(new_cpp_project_benchmarks
-  new_cpp_project
-  benchmark::benchmark
-)
-target_include_directories(new_cpp_project_benchmarks
-  PUBLIC
-    ${CMAKE_CURRENT_BINARY_DIR}
-)
+target_compile_options(metalinfo PRIVATE "-Wno-deprecated-declarations")
