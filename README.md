@@ -1,3 +1,3 @@
-# A New C++ Project
+# Metal Info
 
-This is a project template Chinmay uses for his C++ projects.
+`metalinfo` is a very simple command line utility that dumps information about Metal devices on the macOS host running the utility. Inspired by `vulkaninfo`.
